@@ -140,14 +140,14 @@
             // AddStepMenuItem
             // 
             this.AddStepMenuItem.Name = "AddStepMenuItem";
-            this.AddStepMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AddStepMenuItem.Size = new System.Drawing.Size(138, 22);
             this.AddStepMenuItem.Text = "插入步驟(&I)";
             this.AddStepMenuItem.Click += new System.EventHandler(this.AddStepMenuItem_Click);
             // 
             // RemoveStepMenuItem
             // 
             this.RemoveStepMenuItem.Name = "RemoveStepMenuItem";
-            this.RemoveStepMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.RemoveStepMenuItem.Size = new System.Drawing.Size(138, 22);
             this.RemoveStepMenuItem.Text = "移除步驟(&R)";
             this.RemoveStepMenuItem.Click += new System.EventHandler(this.RemoveStepMenuItem_Click);
             // 
@@ -162,7 +162,7 @@
             // AboutMenuItem
             // 
             this.AboutMenuItem.Name = "AboutMenuItem";
-            this.AboutMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AboutMenuItem.Size = new System.Drawing.Size(114, 22);
             this.AboutMenuItem.Text = "關於(&A)";
             this.AboutMenuItem.Click += new System.EventHandler(this.AboutMenuItem_Click);
             // 
@@ -324,7 +324,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "OpenVCLab";
+            this.Text = "OpenCVLab";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

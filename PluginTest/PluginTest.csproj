@@ -73,7 +73,7 @@
     <Compile Include="CannyConvertStep.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DieContourCV\OpenCVLab.csproj">
+    <ProjectReference Include="..\OpenCVLab\OpenCVLab.csproj">
       <Project>{37d69721-9cc1-45c8-b734-92f1f3e9b57b}</Project>
       <Name>OpenCVLab</Name>
     </ProjectReference>
