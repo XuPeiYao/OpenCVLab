@@ -16,18 +16,17 @@ namespace OpenCVLab {
         public StepTabPage TabPage { get; internal set; }
         public IConvertStep ConvertStep { get; private set; }
         public TextBox[] InputTextBoxs { get; private set; } = new TextBox[0];
-        public IConvertStepIOAttribute[] Attributes {
+        public IConvertStepTypeAttribute[] Attributes {
             get {
                 if (ConvertStep == null)
-                    return new IConvertStepIOAttribute[] {
-                        new IConvertStepIOAttribute() {
-                            StepName = "原始圖檔",
+                    return new IConvertStepTypeAttribute[] {
+                        new IConvertStepTypeAttribute() {
                             Output = typeof(Image<Bgr,byte>)
                         }
                     };
                 return ConvertStep.GetType()
-                    .GetCustomAttributes(typeof(IConvertStepIOAttribute), false)
-                    .Select(x => (IConvertStepIOAttribute)x)
+                    .GetCustomAttributes(typeof(IConvertStepTypeAttribute), false)
+                    .Select(x => (IConvertStepTypeAttribute)x)
                     .ToArray();
             }
         }
@@ -38,10 +37,15 @@ namespace OpenCVLab {
             InputType.Items.AddRange(Attributes.Select(x => x.Input?.FullName).Where(x => x != null).ToArray());
             OutputType.Items.AddRange(Attributes.Select(x => x.Output?.FullName).Where(x => x != null).ToArray());
 
-            if (Attributes.First().ParamNames != null) {
-                var Names = Attributes.First().ParamNames.Split(',');
-                var Types = Attributes.First().ParamTypes.Split(',');
-                var Defaults = Attributes.First().ParamDefault.Split(',');
+            IConvertStepMetaAttribute Meta = (IConvertStepMetaAttribute)(ConvertStep
+                ?.GetType()
+                ?.GetCustomAttributes(typeof(IConvertStepMetaAttribute), false))
+                ?.FirstOrDefault();
+
+            if (Meta?.ParamNames != null) {
+                var Names = Meta.ParamNames.Split(',');
+                var Types = Meta.ParamTypes.Split(',');
+                var Defaults = Meta.ParamDefault.Split(',');
 
                 InputTextBoxs = new TextBox[Names.Length];
                 for (int i = Names.Length - 1; i >= 0; i--) {

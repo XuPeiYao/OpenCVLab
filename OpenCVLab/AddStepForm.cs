@@ -16,12 +16,12 @@ namespace OpenCVLab {
 
         public Type SelectedType { get; set; }
 
-        public IConvertStepIOAttribute[] Attributes {
+        public IConvertStepTypeAttribute[] Attributes {
             get {
                 if (SelectedType == null) return null;
                 return SelectedType
-                    .GetCustomAttributes(typeof(IConvertStepIOAttribute), false)
-                    .Select(x => (IConvertStepIOAttribute)x)
+                    .GetCustomAttributes(typeof(IConvertStepTypeAttribute), false)
+                    .Select(x => (IConvertStepTypeAttribute)x)
                     .ToArray();
             }
         }
@@ -50,7 +50,7 @@ namespace OpenCVLab {
 
             this.listBox1.Items.AddRange(
                 ConvertTypes.Select(
-                    x => ((IConvertStepIOAttribute)x.GetCustomAttributes(typeof(IConvertStepIOAttribute), false).First()).StepName
+                    x => ((IConvertStepMetaAttribute)x.GetCustomAttributes(typeof(IConvertStepMetaAttribute), false).First()).StepName
                 ).ToArray()
             );
 

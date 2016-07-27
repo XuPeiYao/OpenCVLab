@@ -8,20 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PluginTest {
-    [IConvertStepIO(
+    [IConvertStepMeta(
         StepName = "Canny",
+        ParamNames = "thresh,threshLinking,apertureSize,l2Gradient",
+        ParamTypes = "byte,byte,int,bool",
+        ParamDefault = "128,255,3,false")]
+    [IConvertStepType(
         Input = typeof(Image<Gray, byte>),
-        Output = typeof(Image<Gray, byte>),
-        ParamNames = "thresh,threshLinking,apertureSize,l2Gradient",
-        ParamTypes = "byte,byte,int,bool",
-        ParamDefault = "128,255,3,false")]
-    [IConvertStepIO(
-        StepName = "Canny",
+        Output = typeof(Image<Gray, byte>))]
+    [IConvertStepType(
         Input = typeof(Image<Bgr, byte>),
-        Output = typeof(Image<Gray, byte>),
-        ParamNames = "thresh,threshLinking,apertureSize,l2Gradient",
-        ParamTypes = "byte,byte,int,bool",
-        ParamDefault = "128,255,3,false")]
+        Output = typeof(Image<Gray, byte>))]
     public class CannyConvertStep : IConvertStep {
         //double thresh, double threshLinking, int apertureSize, bool l2Gradient
         public IImage Convert(IImage Input, params string[] Params) {

@@ -7,8 +7,9 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 
 namespace OpenCVLab.ConvertFlow {
-    [IConvertStepIO(
-        StepName = "轉換為灰階",
+    [IConvertStepMeta(
+        StepName = "轉換為灰階")]
+    [IConvertStepType(
         Input = typeof(Image<Bgr, byte>), 
         Output = typeof(Image<Gray, byte>))]
     public class BgrToGrayConvertStep : IConvertStep {

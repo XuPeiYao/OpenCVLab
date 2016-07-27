@@ -18,7 +18,11 @@ namespace OpenCVLab {
             this.PageControl.Dock = DockStyle.Fill;
             this.Controls.Add(this.PageControl);
 
-            this.Text = PageControl.Attributes.FirstOrDefault()?.StepName;
+            this.Text = ((IConvertStepMetaAttribute)PageControl.ConvertStep
+                ?.GetType()
+                ?.GetCustomAttributes(
+                    typeof(IConvertStepMetaAttribute),false
+                )?.FirstOrDefault())?.StepName;
             if (ConvertStep == null) this.Text = "原始圖片";
         }
     }

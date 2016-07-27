@@ -7,11 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace OpenCVLab.ConvertFlow {
-    [IConvertStepIO(
+    [IConvertStepMeta(
         StepName = "擴張處理",
         ParamNames = "iterations",
         ParamTypes = "int",
-        ParamDefault = "1",
+        ParamDefault = "1")]
+    [IConvertStepType(
         Input = typeof(Image<Gray, byte>),
         Output = typeof(Image<Gray, byte>))]
     public class DilateConvertStep : IConvertStep {

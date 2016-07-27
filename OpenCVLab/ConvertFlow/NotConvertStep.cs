@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace OpenCVLab.ConvertFlow {
-    [IConvertStepIO(
-        StepName = "反像轉換",
+    [IConvertStepMeta(
+        StepName = "反像轉換")]
+    [IConvertStepType(
         Input = typeof(Image<Gray, byte>),
         Output = typeof(Image<Gray, byte>))]
-    [IConvertStepIO(
-        StepName = "反像轉換",
+    [IConvertStepType(
         Input = typeof(Image<Bgr, byte>),
         Output = typeof(Image<Bgr, byte>))]
     public class NotConvertStep : IConvertStep {

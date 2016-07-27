@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace OpenCVLab.ConvertFlow {
-    [IConvertStepIO(
+    [IConvertStepMeta(
         StepName = "二值化",
-        Input = typeof(Image<Gray, byte>),
-        Output = typeof(Image<Gray, byte>),
         ParamNames = "threshold,maxValue",
         ParamTypes = "int,int",
         ParamDefault = "128,255")]
+    [IConvertStepType(
+        Input = typeof(Image<Gray, byte>),
+        Output = typeof(Image<Gray, byte>))]
     public class ThresholdBinaryConvertStep : IConvertStep {
         public IImage Convert(IImage Input, params string[] Params) {
             Gray thresholdValue = new Gray(int.Parse(Params.First()));

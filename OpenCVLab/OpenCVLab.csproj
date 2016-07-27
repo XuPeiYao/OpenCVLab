@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="ConvertFlow\IConvertStepIOAttribute.cs" />
     <Compile Include="ConvertFlow\ConvertStepHelper.cs" />
+    <Compile Include="ConvertFlow\IConvertStepMetaAttribute.cs" />
     <Compile Include="ConvertFlow\ThresholdBinaryConvertStep.cs" />
     <Compile Include="ConvertFlow\ErodeConvertStep.cs" />
     <Compile Include="ConvertFlow\DilateConvertStep.cs" />
